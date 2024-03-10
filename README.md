@@ -1,5 +1,5 @@
 <h1 align="center"> NvCheatsheet.nvim </h1>
-<p align="center"><sup> NvChad cheatsheet as a stand-alone plugin ([source](https://github.com/NvChad/ui))</sup></p>
+<p align="center"><sup> NvChad cheatsheet as a stand-alone plugin </sup></p>
 
 ### Features
 
@@ -34,7 +34,6 @@ return M
 
 ```
 
-### 💐 Credits
+### Credits
 
 - [NvChad](https://nvchad.com/) - For providing the code
-
