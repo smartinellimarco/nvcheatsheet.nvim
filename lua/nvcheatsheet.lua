@@ -1,3 +1,25 @@
+M = {}
+
+local default_settings = {
+  header = {
+    '                                      ',
+    '                                      ',
+    '                                      ',
+    '█▀▀ █░█ █▀▀ ▄▀█ ▀█▀ █▀ █░█ █▀▀ █▀▀ ▀█▀',
+    '█▄▄ █▀█ ██▄ █▀█ ░█░ ▄█ █▀█ ██▄ ██▄ ░█░',
+    '                                      ',
+    '                                      ',
+    '                                      ',
+  },
+  keymaps = {},
+}
+
+M.opts = {}
+
+function M.setup(opts)
+  M.opts = vim.tbl_deep_extend('force', default_settings, opts or {})
+end
+
 local highlight_groups = {
   'NvChHeadyellow',
   'NvChHeadwhite',
@@ -28,7 +50,10 @@ local set_buf_options = function(ft)
 end
 
 -- basically the draw function
-return function(header, mappings_tb)
+function M.open()
+  local header = M.opts['header']
+  local mappings_tb = M.opts['mappings_tb']
+
   local nvcheatsheet = vim.api.nvim_create_namespace('nvcheatsheet')
 
   vim.g.nv_previous_buf = vim.api.nvim_get_current_buf()
@@ -302,5 +327,7 @@ return function(header, mappings_tb)
 
   -- TODO: keymap local para cerrar buffer
 end
+
+return M
 
 -- vim: ts=2 sts=2 sw=2 et
