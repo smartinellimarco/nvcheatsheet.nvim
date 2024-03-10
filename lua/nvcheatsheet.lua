@@ -52,7 +52,7 @@ end
 -- basically the draw function
 function M.open()
   local header = M.opts['header']
-  local mappings_tb = M.opts['mappings_tb']
+  local mappings_tb = M.opts['keymaps']
 
   local nvcheatsheet = vim.api.nvim_create_namespace('nvcheatsheet')
 
