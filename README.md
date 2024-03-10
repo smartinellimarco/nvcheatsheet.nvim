@@ -17,7 +17,33 @@
 local M = { 'smartinellimarco/nvcheatsheet.nvim' }
 
 M.opts = {
-
+  -- Default header
+	header = {
+		"                                      ",
+		"                                      ",
+		"                                      ",
+		"█▀▀ █░█ █▀▀ ▄▀█ ▀█▀ █▀ █░█ █▀▀ █▀▀ ▀█▀",
+		"█▄▄ █▀█ ██▄ █▀█ ░█░ ▄█ █▀█ ██▄ ██▄ ░█░",
+		"                                      ",
+		"                                      ",
+		"                                      ",
+	},
+  -- Example keymaps
+  keymaps = {
+    Comment = {
+      { 'Insert end of line', 'gcA' },
+      { 'Insert above', 'gcO' },
+      { 'Insert below', 'gco' },
+      { 'Toggle current block', 'gbc' },
+      { 'Toggle current line', 'gcc' },
+      { 'Toggle blockwise', 'gb' },
+      { 'Toggle linewise', 'gc' },
+    },
+    ['Comment (x)'] = {
+      { 'Toggle blockwise (visual)', 'gb' },
+      { 'Toggle linewise (visual)', 'gc' },
+    },
+  },
 }
 
 function M.config(_, opts)
