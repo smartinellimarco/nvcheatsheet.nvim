@@ -75,6 +75,7 @@ function M.open()
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, ascii_header)
 
   -- column width
+  -- TODO: this does not work well for long keymap descriptions
   local column_width = 0
   for _, section in pairs(mappings_tb) do
     for _, mapping in pairs(section) do
@@ -157,6 +158,7 @@ function M.open()
   end
 
   local cards_headings_sorted = vim.tbl_keys(cards)
+  table.sort(cards_headings_sorted)
 
   -- imitate masonry layout
   for _, heading in ipairs(cards_headings_sorted) do
