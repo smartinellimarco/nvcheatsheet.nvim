@@ -1,28 +1,27 @@
 M = {}
 
 local default_settings = {
-	header = {
-
-		"                                      ",
-		"                                      ",
-		"                                      ",
-		"█▀▀ █░█ █▀▀ ▄▀█ ▀█▀ █▀ █░█ █▀▀ █▀▀ ▀█▀",
-		"█▄▄ █▀█ ██▄ █▀█ ░█░ ▄█ █▀█ ██▄ ██▄ ░█░",
-		"                                      ",
-		"                                      ",
-		"                                      ",
-	},
-	keymaps = {},
+  header = {
+    '                                      ',
+    '                                      ',
+    '                                      ',
+    '█▀▀ █░█ █▀▀ ▄▀█ ▀█▀ █▀ █░█ █▀▀ █▀▀ ▀█▀',
+    '█▄▄ █▀█ ██▄ █▀█ ░█░ ▄█ █▀█ ██▄ ██▄ ░█░',
+    '                                      ',
+    '                                      ',
+    '                                      ',
+  },
+  keymaps = {},
 }
 
 M.opts = {}
 
 function M.setup(opts)
-	M.opts = vim.tbl_deep_extend("force", default_settings, opts or {})
+  M.opts = vim.tbl_deep_extend('force', default_settings, opts or {})
 end
 
 function M.open()
-	require("nvcheatsheet")()
+  require('nvcheatsheet')(M.opts['header'], M.opts['keymaps'])
 end
 
 return M

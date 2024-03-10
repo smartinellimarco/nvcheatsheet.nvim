@@ -28,8 +28,7 @@ local set_buf_options = function(ft)
 end
 
 -- basically the draw function
-return function (header, mappings_tb)
-
+return function(header, mappings_tb)
   local nvcheatsheet = vim.api.nvim_create_namespace('nvcheatsheet')
 
   vim.g.nv_previous_buf = vim.api.nvim_get_current_buf()
