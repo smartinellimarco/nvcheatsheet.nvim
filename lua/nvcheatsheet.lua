@@ -20,7 +20,7 @@ function M.setup(opts)
   M.opts = vim.tbl_deep_extend('force', default_settings, opts or {})
 end
 
-local highlight_groups = {
+local color_highlights = {
   'NvCheatsheetWhite',
   'NvCheatsheetGray',
   'NvCheatsheetMediumGray',
@@ -265,7 +265,7 @@ function M.open()
           vim.api.nvim_buf_add_highlight(
             buf,
             nvcheatsheet,
-            highlight_groups[math.random(1, #highlight_groups)],
+            color_highlights[math.random(1, #color_highlights)],
             i + #ascii_header - 1,
             vim.fn.stridx(lines[1], vim.trim(columns[column_i][i]), col_start)
               - 1,
