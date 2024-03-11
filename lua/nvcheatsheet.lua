@@ -21,17 +21,20 @@ function M.setup(opts)
 end
 
 local highlight_groups = {
-  'NvChHeadyellow',
-  'NvChHeadwhite',
-  'NvChHeadvibrant_green',
-  'NvChHeadteal',
-  'NvChHeadred',
-  'NvChHeadpurple',
-  'NvChHeadorange',
-  'NvChHeadgreen',
-  'NvChHeadcyan',
-  'NvChHeadblue',
-  'NvChHeadbaby_pink',
+  'NvCheatsheetWhite',
+  'NvCheatsheetGray',
+  'NvCheatsheetMediumGray',
+  'NvCheatsheetLightGray',
+  'NvCheatsheetBlue',
+  'NvCheatsheetGrayBlue',
+  'NvCheatsheetMediumGray',
+  'NvCheatsheetCyan',
+  'NvCheatsheetRed',
+  'NvCheatsheetGreen',
+  'NvCheatsheetYellow',
+  'NvCheatsheetOrange',
+  'NvCheatsheetPurple',
+  'NvCheatsheetMagenta',
 }
 
 local set_buf_options = function(ft)
