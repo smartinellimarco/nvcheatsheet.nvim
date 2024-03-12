@@ -4,6 +4,8 @@
   <img width="950" alt="Screenshot 2024-03-12 at 00 04 16" src="https://github.com/smartinellimarco/nvcheatsheet.nvim/assets/15314838/594df263-6602-4569-8f2f-2b5bff6e16e3">
 </p>
 
+:warning: This plugin is still under development, which means there may be breaking changes
+
 ### Features
 
 - Customizable header
