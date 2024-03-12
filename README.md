@@ -9,7 +9,7 @@
 - Customizable header
 - Customizable colors
 - Responsive and scrollable grid
-- Define keymaps as a simple table
+- Document all your keymaps by providing a simple table
 
 ### Installation
 
@@ -30,7 +30,7 @@ M.opts = {
     "                                      ",
     "                                      ",
   },
-  -- Example keymaps
+  -- Example keymaps (this doesn't create any)
   keymaps = {
     ['Oil'] = {
       { 'Toggle oil (closes without saving)', '<leader>q' },
