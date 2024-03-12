@@ -1,5 +1,5 @@
 <h1 align="center"> NvCheatsheet.nvim </h1>
-<p align="center"> NvChad cheatsheet as a stand-alone neovim plugin </p>
+<p align="center"> NvChad cheatsheet as a standalone neovim plugin </p>
 <p align="center">
   <img width="950" alt="Screenshot 2024-03-12 at 00 04 16" src="https://github.com/smartinellimarco/nvcheatsheet.nvim/assets/15314838/594df263-6602-4569-8f2f-2b5bff6e16e3">
 </p>
