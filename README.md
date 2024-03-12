@@ -32,25 +32,6 @@ M.opts = {
   },
   -- Example keymaps
   keymaps = {
-    ['LSP'] = {
-      { 'Go to definition', 'gd' },
-      { 'Go to back in definition tag stack', '⌃t' },
-      { 'Go to declaration', 'gD' },
-      { 'Go to implementation', 'gi' },
-      { 'Go to type definition', 'go' },
-      { 'Go to reference', 'gr' },
-      { 'Open diagnostics picker', 'gl' },
-      { 'Signature help', 'gs' },
-      { 'Hover', 'K' },
-      { 'Next diagnostic', ']d' },
-      { 'Previous diagnostic', '[d' },
-      { 'Rename element', '<leader>r' },
-      { 'Open available code actions', '<leader>c' },
-      { 'Show information about attached LSPs', 'LspInfo' },
-      { 'Show LSPs logs', 'LspLog' },
-      { 'Restart attached LSPs', 'LspRestart' },
-      { 'Signature help', '⌃s' },
-    },
     ['Oil'] = {
       { 'Toggle oil (closes without saving)', '<leader>q' },
       { 'Select entry', '⏎' },
