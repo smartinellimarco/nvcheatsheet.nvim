@@ -4,7 +4,6 @@ local color_highlights = {
   'NvCheatsheetWhite',
   'NvCheatsheetGray',
   'NvCheatsheetBlue',
-  'NvCheatsheetGrayBlue',
   'NvCheatsheetCyan',
   'NvCheatsheetRed',
   'NvCheatsheetGreen',
