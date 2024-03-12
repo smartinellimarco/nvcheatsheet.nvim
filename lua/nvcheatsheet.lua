@@ -5,7 +5,7 @@ local filetype = 'nvcheatsheet'
 -- Since the buffer deletes itself when hidden
 -- we need to set this variable to false too
 vim.api.nvim_create_autocmd('BufWinLeave', {
-  group = vim.api.nvim_create_augroup('nvcheatsheet'),
+  group = vim.api.nvim_create_augroup('nvcheatsheet', { clear = true }),
   callback = function()
     if vim.bo.ft == filetype then
       vim.g.nvcheatsheet_displayed = false
@@ -13,15 +13,24 @@ vim.api.nvim_create_autocmd('BufWinLeave', {
   end,
 })
 
-function M.open()
+function M.toggle()
   local drawer = require('nvcheatsheet.draw')
-  local previous_buffer = vim.api.nvim_get_current_buf()
-  local buffer = vim.api.nvim_create_buf(false, true)
 
-  -- Do not create a duplicate cheatsheet
+  -- Toggle the cheatsheet
   if vim.g.nvcheatsheet_displayed then
+    local cheatsheet_buffer = vim.api.nvim_get_current_buf()
+
+    vim.api.nvim_set_current_buf(vim.g.nvcheatsheet_previous_buffer)
+    vim.api.nvim_buf_delete(cheatsheet_buffer, { force = true })
+    vim.g.nvcheatsheet_displayed = false
     return
   end
+
+  -- Save previous buffer ID
+  vim.g.nvcheatsheet_previous_buffer = vim.api.nvim_get_current_buf()
+
+  -- Create an empty buffer
+  local buffer = vim.api.nvim_create_buf(false, true)
 
   -- Mark as displayed
   vim.g.nvcheatsheet_displayed = true
@@ -48,7 +57,7 @@ function M.open()
 
   -- Create a shortcut to hide and remove the cheatsheet buffer
   vim.keymap.set('n', '<Esc>', function()
-    vim.api.nvim_set_current_buf(previous_buffer)
+    vim.api.nvim_set_current_buf(vim.g.nvcheatsheet_previous_buffer)
     vim.api.nvim_buf_delete(buffer, { force = true })
     vim.g.nvcheatsheet_displayed = false
   end, { buffer = buffer })
