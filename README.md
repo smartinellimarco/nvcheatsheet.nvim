@@ -32,18 +32,52 @@ M.opts = {
   },
   -- Example keymaps
   keymaps = {
-    Comment = {
-      { 'Insert end of line', 'gcA' },
-      { 'Insert above', 'gcO' },
-      { 'Insert below', 'gco' },
-      { 'Toggle current block', 'gbc' },
-      { 'Toggle current line', 'gcc' },
-      { 'Toggle blockwise', 'gb' },
-      { 'Toggle linewise', 'gc' },
+    ['LSP'] = {
+      { 'Go to definition', 'gd' },
+      { 'Go to back in definition tag stack', '⌃t' },
+      { 'Go to declaration', 'gD' },
+      { 'Go to implementation', 'gi' },
+      { 'Go to type definition', 'go' },
+      { 'Go to reference', 'gr' },
+      { 'Open diagnostics picker', 'gl' },
+      { 'Signature help', 'gs' },
+      { 'Hover', 'K' },
+      { 'Next diagnostic', ']d' },
+      { 'Previous diagnostic', '[d' },
+      { 'Rename element', '<leader>r' },
+      { 'Open available code actions', '<leader>c' },
+      { 'Show information about attached LSPs', 'LspInfo' },
+      { 'Show LSPs logs', 'LspLog' },
+      { 'Restart attached LSPs', 'LspRestart' },
+      { 'Signature help', '⌃s' },
     },
-    ['Comment (x)'] = {
-      { 'Toggle blockwise (visual)', 'gb' },
-      { 'Toggle linewise (visual)', 'gc' },
+    ['Oil'] = {
+      { 'Toggle oil (closes without saving)', '<leader>q' },
+      { 'Select entry', '⏎' },
+      { 'Select entry', 'l' },
+      { 'Go to parent', 'h' },
+      { 'Open vertical split', '⌃v' },
+      { 'Open horizontal split', '⌃x' },
+      { 'Go to current working directory', '.' },
+    },
+    ['Cmp'] = {
+      { 'Select entry', '⌃f' },
+      { 'Next result - Jump to next snippet placeholder', '⌃n' },
+      { 'Previous result - Jump to previous snippet placeholder', '⌃p' },
+      { 'Scroll up in preview', '⌃u' },
+      { 'Scroll down in preview', '⌃d' },
+      { 'Abort autocompletion', '⌃e' },
+    },
+    ['Comment'] = {
+      { 'Comment line toggle', 'gcc' },
+      { 'Comment block toggle', 'gbc' },
+      { 'Comment visual selection', 'gc' },
+      { 'Comment visual selection using block delimiters', 'gb' },
+      { 'Comment out text object line wise', 'gc<motion>' },
+      { 'Comment out text object block wise', 'gb<motion>' },
+      { 'Add comment on the line above', 'gcO' },
+      { 'Add comment on the line below', 'gco' },
+      { 'Add comment at the end of line', 'gcA' },
     },
   },
 }
@@ -53,6 +87,7 @@ function M.config(_, opts)
 
   nvcheatsheet.setup(opts)
 
+  -- You can also close it with <Esc> too
   vim.keymap.set('n', '<F1>', nvcheatsheet.toggle)
 end
 
@@ -65,14 +100,17 @@ return M
 This plugin requires support from your colorscheme, for the following highlight groups:
 
 ```lua
--- Example snippet
-{
-    NvChSection = { bg = palette.alt_bg },
+local M = {}
+
+function M.highlight(palette, opts)
+  return {
+    NvChAsciiHeader = { bg = palette.bg, fg = palette.fg }, -- Title
+    NvChSection = { bg = palette.alt_bg }, -- Each card
+
+    -- Colors for the headers
     NvCheatsheetWhite = { bg = palette.white, fg = palette.bg },
     NvCheatsheetGray = { bg = palette.gray, fg = palette.fg },
     NvCheatsheetBlue = { bg = palette.blue, fg = palette.bg },
-    NvCheatsheetGrayBlue = { bg = palette.gray_blue, fg = palette.bg },
-    NvCheatsheetMediumGrayBlue = { bg = palette.medium_gray_blue, fg = palette.fg },
     NvCheatsheetCyan = { bg = palette.cyan, fg = palette.bg },
     NvCheatsheetRed = { bg = palette.red, fg = palette.fg },
     NvCheatsheetGreen = { bg = palette.green, fg = palette.bg },
@@ -80,7 +118,12 @@ This plugin requires support from your colorscheme, for the following highlight 
     NvCheatsheetOrange = { bg = palette.orange, fg = palette.bg },
     NvCheatsheetPurple = { bg = palette.purple, fg = palette.fg },
     NvCheatsheetMagenta = { bg = palette.magenta, fg = palette.bg },
-}
+  }
+end
+
+return M
+
+-- vim: ts=2 sts=2 sw=2 et
 ```
 
 ### Credits
