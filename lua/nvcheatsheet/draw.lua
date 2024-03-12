@@ -3,11 +3,8 @@ local M = {}
 local color_highlights = {
   'NvCheatsheetWhite',
   'NvCheatsheetGray',
-  'NvCheatsheetMediumGray',
-  'NvCheatsheetLightGray',
   'NvCheatsheetBlue',
   'NvCheatsheetGrayBlue',
-  'NvCheatsheetMediumGray',
   'NvCheatsheetCyan',
   'NvCheatsheetRed',
   'NvCheatsheetGreen',
@@ -18,6 +15,9 @@ local color_highlights = {
 }
 
 function M.draw(buf, header, mappings_tb)
+  --FIXME: Use less split for keymap and desc
+  --FIXME: Columns are not entirely centered
+
   -- Create namespace for the highlight groups
   local nvcheatsheet = vim.api.nvim_create_namespace('nvcheatsheet')
 
@@ -34,8 +34,6 @@ function M.draw(buf, header, mappings_tb)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, ascii_header)
 
   -- column width
-  -- TODO: this does not work well for long keymap descriptions
-  -- TODO: inconsistency across drawings of the cheatsheet (not centered)
   local column_width = 0
   for _, section in pairs(mappings_tb) do
     for _, mapping in pairs(section) do
@@ -43,6 +41,9 @@ function M.draw(buf, header, mappings_tb)
       column_width = column_width > txt and column_width or txt
     end
   end
+
+  -- 10 = space between mapping txt , 4 = 2 & 2 space around mapping txt
+  column_width = column_width + 10
 
   local win_width = vim.api.nvim_win_get_width(win)
     - vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].textoff
@@ -187,8 +188,6 @@ function M.draw(buf, header, mappings_tb)
 
   vim.api.nvim_buf_set_lines(buf, #ascii_header, -1, false, result)
 
-  -- TODO: choose colors in order
-  -- add highlight to the columns
   for i = 0, max_col_height, 1 do
     for column_i, _ in ipairs(columns) do
       local col_start = column_i == 1 and 0
@@ -220,6 +219,7 @@ function M.draw(buf, header, mappings_tb)
           vim.api.nvim_buf_add_highlight(
             buf,
             nvcheatsheet,
+            -- TODO: let the user choose the color
             color_highlights[math.random(1, #color_highlights)],
             i + #ascii_header - 1,
             vim.fn.stridx(lines[1], vim.trim(columns[column_i][i]), col_start)
