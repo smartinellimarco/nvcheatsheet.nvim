@@ -109,6 +109,23 @@ return M
 -- vim: ts=2 sts=2 sw=2 et
 ```
 
+### Integrations
+
+Lualine
+```lua
+extensions = {
+  {
+    sections = {
+      lualine_a = {
+        function()
+          return 'Cheatsheet'
+        end,
+      },
+    },
+    filetypes = { 'nvcheatsheet' },
+  }
+}
+```
 ### Credits
 
 - [NvChad](https://nvchad.com/) - For providing the source code
