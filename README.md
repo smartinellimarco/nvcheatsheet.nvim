@@ -9,7 +9,7 @@
 ### Features
 
 - Customizable header
-- Customizable colors
+- Customizable colors through highlight gruops
 - Responsive and scrollable grid
 - Document all your keymaps by providing a simple table
 
