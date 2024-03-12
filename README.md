@@ -97,7 +97,7 @@ return M
 
 ```
 ### Highlights
-This plugin requires support from your colorscheme, for the following highlight groups:
+This plugin requires your colorscheme to support these highlight groups:
 
 ```lua
 local M = {}
