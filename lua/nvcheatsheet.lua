@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd('BufWinLeave', {
 function M.toggle()
   local drawer = require('nvcheatsheet.draw')
 
-  -- Toggle the cheatsheet
+  -- Close the cheatsheet if its opened
   if vim.g.nvcheatsheet_displayed then
     local cheatsheet_buffer = vim.api.nvim_get_current_buf()
 
