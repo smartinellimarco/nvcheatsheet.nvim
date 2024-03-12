@@ -87,7 +87,7 @@ function M.config(_, opts)
 
   nvcheatsheet.setup(opts)
 
-  -- You can also close it with <Esc> too
+  -- You can also close it with <Esc>
   vim.keymap.set('n', '<F1>', nvcheatsheet.toggle)
 end
 
