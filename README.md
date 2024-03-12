@@ -1,12 +1,15 @@
 <h1 align="center"> NvCheatsheet.nvim </h1>
 <p align="center"><sup> NvChad cheatsheet as a stand-alone plugin </sup></p>
+<p align="center">
+  <img width="950" alt="Screenshot 2024-03-12 at 00 04 16" src="https://github.com/smartinellimarco/nvcheatsheet.nvim/assets/15314838/594df263-6602-4569-8f2f-2b5bff6e16e3">
+</p>
 
 ### Features
 
-- Responsive and scrollable grid
-- Customizable colors
-- Define keymaps as a simple table
 - Customizable header
+- Customizable colors
+- Responsive and scrollable grid
+- Define keymaps as a simple table
 
 ### Installation
 
@@ -50,13 +53,34 @@ function M.config(_, opts)
 
   nvcheatsheet.setup(opts)
 
-  vim.keymap.set('n', '<leader>ch', nvcheatsheet.open())
+  vim.keymap.set('n', '<F1>', nvcheatsheet.toggle)
 end
 
 return M
 
 -- vim: ts=2 sts=2 sw=2 et
 
+```
+### Highlights
+This plugin requires support from your colorscheme, for the following highlight groups:
+
+```lua
+-- Example snippet
+{
+    NvChSection = { bg = palette.alt_bg },
+    NvCheatsheetWhite = { bg = palette.white, fg = palette.bg },
+    NvCheatsheetGray = { bg = palette.gray, fg = palette.fg },
+    NvCheatsheetBlue = { bg = palette.blue, fg = palette.bg },
+    NvCheatsheetGrayBlue = { bg = palette.gray_blue, fg = palette.bg },
+    NvCheatsheetMediumGrayBlue = { bg = palette.medium_gray_blue, fg = palette.fg },
+    NvCheatsheetCyan = { bg = palette.cyan, fg = palette.bg },
+    NvCheatsheetRed = { bg = palette.red, fg = palette.fg },
+    NvCheatsheetGreen = { bg = palette.green, fg = palette.bg },
+    NvCheatsheetYellow = { bg = palette.yellow, fg = palette.bg },
+    NvCheatsheetOrange = { bg = palette.orange, fg = palette.bg },
+    NvCheatsheetPurple = { bg = palette.purple, fg = palette.fg },
+    NvCheatsheetMagenta = { bg = palette.magenta, fg = palette.bg },
+}
 ```
 
 ### Credits
