@@ -109,4 +109,4 @@ return M
 
 ### Credits
 
-- [NvChad](https://nvchad.com/) - For providing the code
+- [NvChad](https://nvchad.com/) - For providing the source code
